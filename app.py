@@ -17,14 +17,10 @@ authenticator = stauth.Authenticate(
     config['preauthorized']
 )
 
-render_home()
+name, authentication_status, username = authenticator.login('Login')
 
+if st.session_state["authentication_status"]:
+    render_home()
 
-
-# name, authentication_status, username = authenticator.login('Login')
-
-# if st.session_state["authentication_status"]:
-#     authenticator.logout('Logout', 'sidebar', key='unique_key')
-
-# elif st.session_state["authentication_status"] is False:
-#     st.error('Username/password is incorrect')
+elif st.session_state["authentication_status"] is False:
+    st.error('Username/password is incorrect')
