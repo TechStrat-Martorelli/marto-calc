@@ -12,13 +12,6 @@ def render_home():
         curva = st.selectbox('Curva', ['Mais novos', 'Normal', 'Mais velhos'], index=1)
         st.text_input('Previsão para o ano', key='ano')
 
-    if curva == 'Mais novos':
-        curva = 30
-    elif curva == 'Normal':
-        curva = 55
-    elif curva == 'Mais velhos':
-        curva = 75
-
     df = criar_df(curva, int(filiados))
     
     st.write(f'A presente distribuição refere-se a {filiados} e uma distribuição {curva}.')

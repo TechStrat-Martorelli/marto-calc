@@ -26,8 +26,15 @@ def criar_df(curva, filiados):
     idades = list(range(25, 100))
 
     # Create a normal distribution with a mean and standard deviation
-    mean_age = curva  # Mean age
     std_deviation = 15  # Standard deviation
+    mean_age = 55
+
+    if curva == 'Mais novos':
+        mean_age = 30
+    elif curva == 'Normal':
+        mean_age = 55
+    elif curva == 'Mais velhos':
+        mean_age = 75
 
     # Generate 2000 random ages following a normal distribution
     ages = np.random.normal(mean_age, std_deviation, filiados)
