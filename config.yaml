@@ -1,0 +1,16 @@
+cookie:
+  expiry_days: 0
+  key: marto-streamlit
+  name: marto-streamlit
+credentials:
+  usernames:
+    admin:
+      email: marcelo.mesquita@techstrategy.com.br
+      name: Marcelo Mesquita
+      password: $2b$12$GBl5xYKAHTRiB5Wmt8snOOJfgyU91rGQdZ2kr4RzwIuPbDFOx7hwq
+    dba:
+      email: dba@martorelli.com.br
+      name: Daniel Conde
+      password: $2b$12$tzwW/lmo0DfiUG9RUs1rBum0TMGYHS/ub0WP930NGrC7hjqS6kOeO
+preauthorized:
+  emails:
