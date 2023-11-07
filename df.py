@@ -21,9 +21,9 @@ def mapearExpectativaVida(faixa):
     return 0.8
 
 def mapearCurva(curva):
-    if curva == 'Normal': return 35
-    if curva == 'Mais novos': return 55
-    if curva == 'Mais velhos': return 75
+    if curva == 'Mais novos': return 30
+    if curva == 'Normal': return 45
+    if curva == 'Mais velhos': return 65
 
 def criar_df(curva, filiados):
     # Define age groups
