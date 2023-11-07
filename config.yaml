@@ -11,6 +11,10 @@ credentials:
     dba:
       email: dba@martorelli.com.br
       name: Daniel Conde
-      password: $2b$12$tzwW/lmo0DfiUG9RUs1rBum0TMGYHS/ub0WP930NGrC7hjqS6kOeO
+      password: $2b$12$UAZtBzCxj1fvWduTJl/b1ug2R4iNv0K3AZZbkxeIgHpII9.I0daXe
+    fernanda:
+      email: fernanda@faiscalab.com.br
+      name: Fernanda
+      password: $2b$12$UAZtBzCxj1fvWduTJl/b1ug2R4iNv0K3AZZbkxeIgHpII9.I0daXe
 preauthorized:
   emails:

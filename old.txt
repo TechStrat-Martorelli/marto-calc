@@ -1,0 +1,75 @@
+import matplotlib.pyplot as plt
+
+""" def barchart_vivos_e_falecidos(df):
+    faixas_ordenadas = ['até 30', '31 a 50', '51 a 70', '71 a 90']
+
+    pivot_table = df.pivot_table(index='faixa', values=['falecidos', 'vivos'], aggfunc='sum')
+
+    # Reorder the columns in the desired order
+    pivot_table = pivot_table.loc[faixas_ordenadas]
+
+    # Define the colors for 'Falecido' (red) and 'Vivo' (blue)
+    cores = ['#ff0000', '#0000ff']
+
+    # Create a stacked column chart with defined colors
+    fig, ax = plt.subplots(figsize=(8, 5))
+    pivot_table[['falecidos', 'vivos']].plot(ax=ax, kind='bar', stacked=True, color=cores)
+
+    plt.grid(axis='y', linestyle='-', alpha=1)
+
+    # Add labels and a title
+    ax.set_xlabel('Faixa Etária', color='white')  # Set the font color to white
+    ax.tick_params(axis='x', colors='white')  # Color for faixas (x-axis labels)
+    
+    ax.set_ylabel('Quantidade', color='white')  # Set the font color to white
+    ax.tick_params(axis='y', colors='white')  # Color for quantity values (y-axis labels)
+    
+    ax.set_title('Relação vivos e falecidos por Faixa Etária', color='white')  # Set the title font color to white
+
+
+    # Customize the legend (optional)
+    plt.legend(title='Legenda', labels=['Falecido', 'Vivo'], loc='upper right')
+
+    # Customize the background color
+    fig.set_facecolor((0, 0, 0, 0))
+
+    # Add values to the bars
+    for p in ax.patches:
+        x = p.get_x() + p.get_width() / 2
+        y = p.get_height() / 2
+        ax.annotate(f'{p.get_height():.0f}', (x, y), ha='center', va='center', fontsize=12, color='white', xytext=(0, 0), textcoords='offset points')
+
+    # Show the chart
+    plt.xticks(rotation=45)
+    #plt.tight_layout()
+    return fig """
+
+
+
+    def piechart_vivos_falecidos(df):
+    # Calculate the total number of 'vivos' and 'falecidos'
+    total_vivos = df['vivos'].sum()
+    total_falecidos = df['falecidos'].sum()
+
+    # Create a donut chart
+    labels = ['Vivos', 'Falecidos']
+    sizes = [total_vivos, total_falecidos]
+    backgound_color = '#2ea0d6'
+    colors = ['blue', 'red']
+
+    fig, ax = plt.subplots()
+
+    ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90, pctdistance=0.7,
+           textprops={'color': 'white', 'weight': 'bold'})
+    
+    ax.axis('equal') # Equal aspect ratio ensures that the pie chart is drawn as a circle.
+    
+    center_circle = plt.Circle((0, 0), 0.50, fc=backgound_color) # add a circle to make it a donut
+    
+    fig.set_facecolor((0, 0, 0, 0))
+    fig.gca().add_artist(center_circle) # Draw a circle in the center to make it a donut chart
+
+    plt.title('Distribuição de Filiados', color='white') # Set a title
+
+    # Return the chart figure
+    return plt.gcf()
