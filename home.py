@@ -1,9 +1,6 @@
 import streamlit as st
 from df import *
 from graphs import *
-import locale
-
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
 def render_home():
     st.write(f'Welcome *{st.session_state["name"]}*')
@@ -25,7 +22,10 @@ def render_home():
     df = criar_df(curva, filiados)
 
     def parseBRL(valor):
-        return locale.currency(valor, grouping=True, symbol='R$ ')
+        a = '{:,.2f}'.format(float(valor))
+        b = a.replace(',','v')
+        c = b.replace('.',',')
+        return c.replace('v','.')
 
     col1, col2, col3 = st.columns(3)
     
@@ -42,5 +42,3 @@ def render_home():
 
 
     st.write(f'A presente distribuição refere-se a {filiados} e uma distribuição {curva}.')
-    #fig1 = criarBarChart_distribuicao(df)
-    #st.pyplot(fig=fig1)
